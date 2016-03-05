@@ -1,0 +1,21 @@
+{
+  "name": "veneto",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ryosuzuki/veneto",
+  "authors": [
+    "Ryo Suzuki <ryosuzk@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.7",
+    "babel": "*",
+    "jquery": "~2.2.1"
+  }
+}
