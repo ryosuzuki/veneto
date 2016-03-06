@@ -28,6 +28,15 @@ app.use( function *(next) {
 app.use(route.get('/', index));
 app.use(route.get('/favicon.ico', null));
 app.use(route.get('/:id', show));
+app.use(route.post('/send', send))
+
+
+function *send() {
+  var htmlStr = this.request.body.html;
+  // json = JSON.parse(json);
+  // var result = compute.getField(json);
+  // this.response.body = result;
+}
 
 function *index() {
   this.body = yield this.render('index');
@@ -36,6 +45,9 @@ function *index() {
 function *show(id) {
   this.body = yield this.render(id)
 }
+
+
+
 
 app.listen(port);
 

@@ -1,0 +1,19 @@
+
+.component {
+  width: 33%;
+  height: 100vh;
+  float: left;
+}
+
+.title {
+  text-align: center;
+}
+
+#component-1, #component-2 {
+  border-right: 3px dashed #999;
+}
+
+#component-3 {
+  background: #eee;
+}
+

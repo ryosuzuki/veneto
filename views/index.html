@@ -1,17 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello React!</title>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/react/react.js"></script>
-    <script src="/bower_components/react/react-dom.js"></script>
-    <script src="/bower_components/babel/browser.js"></script>
+{% extends 'layout.html' %}
 
-    <script type="text/babel" src="/public/js/main.js"></script>
-  </head>
-  <body>
-    <div id="example"></div>
-  </body>
-</html>
+{% block main %}
 
+<script src="/public/js/index.js"></script>
+
+<div id="components">
+  <div id="component-1" class="component">
+    <p class="title">Design of Existing Website</p>
+    <div id="original">
+      <div id="users">
+        <div class="user">
+          <h1 class="name">Ryo Suzuki</h1>
+          <p class="about">Hi, I'm Ryo</p>
+        </div>
+        <div class="user">
+          <h1 class="name">Tom Yeh</h1>
+          <p class="about">Hi, I'm Tom</p>
+        </div>
+        <div class="user">
+          <h1 class="name">Layne Hubbard</h1>
+          <p class="about">Hi, I'm Layne</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="component-2" class="component">
+    <p class="title">Generated Website</p>
+    <div id="hide" style="display: none;"></div>
+    <div id="generate">
+    </div>
+  </div>
+
+  <div id="component-3" class="component">
+    <p class="title">User JSON Data</p>
+    <div id="data">
+      <pre></pre>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
