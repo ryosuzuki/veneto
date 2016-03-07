@@ -1,8 +1,43 @@
 
-var originalHTML = $('#original').html();
-$('#hide').html(originalHTML);
+$(function () {
+  getList($('#original'));
+  groupClass()
+})
 
-$('#generate').html();
+var classList = []
+var classGroup;
+function getList (item) {
+  var children = $(item).children()
+  for (var i=0; i<children.length; i++) {
+    var child = children[i];
+    var className = child.classList[0]
+    if (className) classList.push(className)
+    getList(child)
+  }
+}
+
+function groupClass() {
+  classGroup = _.groupBy(classList)
+  scoreList = []
+  for (var key in classGroup) {
+    var s = classGroup[key].length;
+    var p = $('.' + key).parent().length
+    var c = $('.' + key).children().length
+    var score = c - p
+    var hash = { name: key, score: score, s: s, c: c, p: p }
+    scoreList.push(hash)
+  }
+
+  topClass = _.sortBy(scoreList, 'score').reverse()[0];
+}
+
+
+
+
+// var originalHTML = $('#original').html();
+// $('#hide').html(originalHTML);
+
+// $('#generate').html();
 
 var hide = $('#hide');
 // var users = $('#users', target);
@@ -34,8 +69,8 @@ var target;
 $( function () {
   target = $('#original');
 
-  var originalHTML = $('#original').html();
-  $('#hide').html(originalHTML);
+  // var originalHTML = $('#original').html();
+  // $('#hide').html(originalHTML);
 
   $('#generate').html();
 

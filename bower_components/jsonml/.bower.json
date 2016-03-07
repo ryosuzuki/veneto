@@ -1,0 +1,37 @@
+{
+  "name": "jsonml",
+  "version": "2.0.0",
+  "description": "JsonML-related tools for losslessly converting between XML/HTML and JSON, including mixed-mode XML.",
+  "main": "jsonml-html.js",
+  "keywords": [
+    "json",
+    "mixed-mode",
+    "xml",
+    "lossless",
+    "roundtrip",
+    "conversion",
+    "jbst"
+  ],
+  "authors": [
+    "Stephen M. McKamey (http://mck.me)"
+  ],
+  "license": "MIT",
+  "homepage": "http://jsonml.org/",
+  "ignore": [
+    "./!(jsonml*)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mckamey/jsonml.git"
+  },
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "8948391192f3e69cd9a72694d43338a08e0478d2"
+  },
+  "_source": "git://github.com/mckamey/jsonml.git",
+  "_target": "~2.0.0",
+  "_originalSource": "jsonml",
+  "_direct": true
+}
