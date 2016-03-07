@@ -31,14 +31,26 @@ function groupClass() {
   var item = $('.' + topClass.name)[0]
 
   json = createStructure(item);
+
+  createJSX()
+}
+
+function createJSX (json) {
+
+
+
+  React.createElement()
+  React.createElement(item.tga, {className: item.className},
+    "Hello, world! I am a CommentBox."
+)
 }
 
 function createStructure (item) {
   var info = {
     tag: item.tagName.toLowerCase(),
     id: item.id,
-    classes: item.classList,
-    name: item.className,
+    classList: item.classList,
+    className: item.className,
     children: []
   }
   for (var i=0; i<item.children.length; i++) {
