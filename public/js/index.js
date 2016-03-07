@@ -27,8 +27,26 @@ function groupClass() {
     var hash = { name: key, score: score, s: s, c: c, p: p }
     scoreList.push(hash)
   }
-
   topClass = _.sortBy(scoreList, 'score').reverse()[0];
+  var item = $('.' + topClass.name)[0]
+
+  json = createStructure(item);
+}
+
+function createStructure (item) {
+  var info = {
+    tag: item.tagName.toLowerCase(),
+    id: item.id,
+    classes: item.classList,
+    name: item.className,
+    children: []
+  }
+  for (var i=0; i<item.children.length; i++) {
+    var child = item.children[i];
+    var childInfo = createStructure(child)
+    info.children.push(childInfo)
+  }
+  return info
 }
 
 
