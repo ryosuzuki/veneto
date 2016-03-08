@@ -3,8 +3,8 @@ angular.module('app', [])
 .controller('MainCtrl', function ($scope, $compile) {
   var json = {
     users: [
-      { name: 'Hoge', about: 'hoge hoge'},
-      { name: 'Fuga', about: 'fuga fuga'}
+      { name: 'Name 1', about: 'Hello world 1'},
+      { name: 'Name 2', about: 'Hello world 2'}
     ]
   }
   window.scope = $scope;
