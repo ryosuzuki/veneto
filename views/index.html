@@ -3,8 +3,11 @@
 {% block main %}
 
 <script src="/public/js/index.js"></script>
+<script src="/public/js/angular.js"></script>
+<!-- <script type="text/babel" src="/public/js/react.js"></script> -->
 
-<div id="components">
+
+<div id="components" ng-controller="MainCtrl">
   <div id="component-1" class="component">
     <p class="title">Design of Existing Website</p>
     <div id="original">
@@ -29,13 +32,17 @@
     <p class="title">Generated Website</p>
     <div id="hide" style="display: none;"></div>
     <div id="generate">
+      <!-- <div ng-repeat="user in users">
+        <h1>{{ user.name }}</h1>
+        <p>{{ user.about }}</p>
+      </div> -->
     </div>
   </div>
 
   <div id="component-3" class="component">
     <p class="title">User JSON Data</p>
     <div id="data">
-      <pre></pre>
+      <pre>{{ getData() }}</pre>
     </div>
   </div>
 </div>

@@ -1,0 +1,1 @@
+window.HTMLtoJSX = require('htmltojsx');

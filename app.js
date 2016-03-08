@@ -9,6 +9,8 @@ var serve = require('koa-static');
 var parser = require('koa-bodyparser');
 var koa = require('koa');
 var Q = require('q');
+var swig = require('swig')
+swig.setDefaults({ varControls: ['<%=', '%>'] });
 
 var app = koa();
 var server = http.createServer(app.callback());

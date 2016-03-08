@@ -1,7 +1,5 @@
 
 $(function () {
-  getList($('#original'));
-  groupClass()
 })
 
 var classList = []
@@ -16,7 +14,7 @@ function getList (item) {
   }
 }
 
-function groupClass() {
+function getHTML() {
   classGroup = _.groupBy(classList)
   scoreList = []
   for (var key in classGroup) {
@@ -31,36 +29,75 @@ function groupClass() {
   var item = $('.' + topClass.name)[0]
 
   json = createStructure(item);
+  html = json2html.transform({}, json)
 
-  createJSX()
+  return html;
+  // $('#generate').html(html)
+  // console.log(html)
+  // var converter = new HTMLtoJSX({
+  //   createClass: false, // true,
+  //   // outputClassName: 'UserComponent'
+  // });
+  // var jsx = converter.convert(html)
+
+  // var UserCompoenent = React.createClass({
+  //   render: function () {
+  //     return (jsx)
+  //   }
+  // })
+  // window.user = UserCompoenent;
+
 }
 
-function createJSX (json) {
-
-
-
-  React.createElement()
-  React.createElement(item.tga, {className: item.className},
-    "Hello, world! I am a CommentBox."
-)
-}
-
-function createStructure (item) {
+function createStructure (item, parent) {
   var info = {
     tag: item.tagName.toLowerCase(),
     id: item.id,
-    classList: item.classList,
-    className: item.className,
-    children: []
+    class: item.classList.toString(),
+    name: item.className,
+    children: [],
+    parent: parent
   }
   for (var i=0; i<item.children.length; i++) {
     var child = item.children[i];
-    var childInfo = createStructure(child)
+    var childInfo = createStructure(child, info.name)
     info.children.push(childInfo)
+  }
+  if (info.children.length == 0) {
+    info.html = '{{' + info.parent + '.' + info.name + '}}'
+  } else {
+    info['ng-repeat'] = 'user in users'
   }
   return info
 }
 
+
+function createHTML (info) {
+  var html = '<' + info.tag
+  var childrenHTML;
+  for (var key in info) {
+    var out;
+    switch (key) {
+      case 'tag':
+      break
+      case 'children':
+      var children = info.children;
+      for (var i=0; i<children.length; i++) {
+        var childInfo = children[i];
+        childrenHTML += createHTML(childInfo)
+      }
+      default:
+      var val = info[key]
+      // out = '"' + val.replace(/"/g, '&quot;') + '"'
+    }
+    html += ' ' + key + '=' + out;
+  }
+  html += '>'
+  html += info.name;
+  html += childrenHTML;
+  html += '</' + info.tag + '>'
+  return html;
+}
 
 
 
@@ -140,16 +177,16 @@ $( function () {
 
 
 
-  var html = "<div id=\"users\"><div class=\"user\"><h1 class=\"name\">{user.name}</h1><p class=\"about\">{user.about}</p></div>";
-  $.ajax({
-    url: '/send',
-    type: 'POST',
-    dataType: 'json',
-    data: { html: html },
-  })
-  .done(function(data) {
-    console.log(data);
-  })
+  // var html = "<div id=\"users\"><div class=\"user\"><h1 class=\"name\">{user.name}</h1><p class=\"about\">{user.about}</p></div>";
+  // $.ajax({
+  //   url: '/send',
+  //   type: 'POST',
+  //   dataType: 'json',
+  //   data: { html: html },
+  // })
+  // .done(function(data) {
+  //   console.log(data);
+  // })
 
 
 })

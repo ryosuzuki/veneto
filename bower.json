@@ -18,6 +18,8 @@
     "babel": "*",
     "jquery": "~2.2.1",
     "lodash": "~4.6.1",
-    "jsonml": "~2.0.0"
+    "jsonml": "~2.0.0",
+    "jquery.json2html": "moappi/jquery.json2html",
+    "angular": "~1.5.0"
   }
 }

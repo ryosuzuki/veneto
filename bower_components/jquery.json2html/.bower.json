@@ -1,0 +1,14 @@
+{
+  "name": "jquery.json2html",
+  "homepage": "https://github.com/moappi/jquery.json2html",
+  "_release": "7f206bdf1b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7f206bdf1b8b675aa0323f6f59714c19f19ded3a"
+  },
+  "_source": "git://github.com/moappi/jquery.json2html.git",
+  "_target": "*",
+  "_originalSource": "moappi/jquery.json2html",
+  "_direct": true
+}
